@@ -11,6 +11,14 @@ export default {}
 </script>
 
 <style lang="scss">
+// @font-face {
+//    font-family: 'LatoWeb';
+//    src: local('Lato-Regular'), local('Lato-Regular'),
+//       url('/src/assets/fonts/Lato-Regular.woff2') format('woff2'),
+//       url('/src/assets/fonts/Lato-Regular.woff') format('woff');
+//    font-weight: 700;
+//    font-style: normal;
+// }
 * {
    margin: 0;
    padding: 0;
