@@ -1,5 +1,5 @@
 <template>
-   <div>dfgdfgdfg</div>
+   <div class="orders-list">dfgdfgdfg</div>
 </template>
 
 <script>
