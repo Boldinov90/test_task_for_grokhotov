@@ -18,6 +18,7 @@ export default {
 
 <style lang="scss" scoped>
 .shopping-cart{
-
+   .shopping-cart__header{}
+   .shopping-cart__order-list{}
 }
 </style>
