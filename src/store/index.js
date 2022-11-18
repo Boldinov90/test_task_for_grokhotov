@@ -4,7 +4,7 @@ export default createStore({
    state: {
       order: [
          {
-            img: '',
+            image: 'product_1.png',
             title: 'Вытяжное устройство G2H',
             description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
             article: 'G2H1065',
@@ -12,7 +12,7 @@ export default createStore({
             cost: 12644
          },
          {
-            img: '',
+            image: 'product_2.png',
             title: 'Вытяжное устройство BXC',
             description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
             article: 'G2H1065',
@@ -20,7 +20,7 @@ export default createStore({
             cost: 12644
          },
          {
-            img: '',
+            image: 'product_3.png',
             title: 'Вытяжное устройство GHN',
             description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
             article: 'G2H1065',

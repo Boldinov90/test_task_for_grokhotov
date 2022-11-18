@@ -31,7 +31,7 @@ export default {
 <style lang="scss" scoped>
 .shopping-cart-header {
    height: 53px;
-   width: 800px;
+   max-width: 800px;
    display: flex;
    align-items: flex-end;
    .shopping-cart-header__title {
