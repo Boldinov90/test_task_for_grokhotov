@@ -43,7 +43,7 @@ export default {
       color: #1f2432;
    }
    .shopping-cart-header__products-count {
-      // font-family: 'Lato-Regular', sans-serif;
+      font-family: 'Lato-Regular', sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 18px;

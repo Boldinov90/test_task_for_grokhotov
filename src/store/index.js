@@ -33,15 +33,35 @@ export default createStore({
    mutations: {
       CLEAR_SHOPPING_CART(state) {
          state.order = []
+      },
+      REMOVE_PRODUCT(state, product) {
+         state.order = state.order.filter((item) => item !== product)
+      },
+      INCREMENT_COUNT(state, product) {
+         state.order.find((item) => item === product).count++
+      },
+      DECREMENT_COUNT(state, product) {
+         if (state.order.find((item) => item === product).count > 1) {
+            state.order.find((item) => item === product).count--
+         }
       }
    },
    actions: {
-      CLEAR_SHOPPING_CART({commit}){
+      CLEAR_SHOPPING_CART({ commit }) {
          commit('CLEAR_SHOPPING_CART')
+      },
+      REMOVE_PRODUCT({ commit }, product) {
+         commit('REMOVE_PRODUCT', product)
+      },
+      INCREMENT_COUNT({ commit }, product) {
+         commit('INCREMENT_COUNT', product)
+      },
+      DECREMENT_COUNT({ commit }, product) {
+         commit('DECREMENT_COUNT', product)
       }
    },
    getters: {
-      ORDER(state){
+      ORDER(state) {
          return state.order
       }
    },

@@ -1,6 +1,6 @@
 <template>
    <div class="orders-list" >
-      <OrdersItem v-for="itemOrder of ORDER" :key="itemOrder.id" :itemOrder="itemOrder" />
+      <OrdersItem class="orders-list__orders-item" v-for="itemOrder of ORDER" :key="itemOrder.id" :itemOrder="itemOrder" />
    </div>
 </template>
 
@@ -20,5 +20,6 @@ export default {
 <style lang="scss" scoped>
 .orders-list{
    margin-top: 50px;
+   .orders-list__orders-item{}
 }
 </style>
