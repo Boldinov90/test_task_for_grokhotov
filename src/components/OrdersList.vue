@@ -20,6 +20,6 @@ export default {
 <style lang="scss" scoped>
 .orders-list{
    margin-top: 50px;
-   .orders-list__orders-item{}
+   // .orders-list__orders-item{}
 }
 </style>
