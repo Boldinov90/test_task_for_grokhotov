@@ -27,7 +27,6 @@ export default {
 <style lang="scss" scoped>
 .orders-list {
    margin-top: 50px;
-
    // .orders-list__orders-item{}
    .orders-list__missing-products {
       font-family: 'Lato', sans-serif;
@@ -36,6 +35,9 @@ export default {
       font-size: 24px;
       line-height: 145%;
       color: #1F2432;
+      // width: 100%;
+      // display: flex;
+      // justify-content: center;
    }
 }
 </style>
