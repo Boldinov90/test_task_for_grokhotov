@@ -50,7 +50,6 @@ export default {
       },
       incrementCount(product){
          this.INCREMENT_COUNT(product)
-         console.log('Привет')
       },
       decrementCount(product){
          this.DECREMENT_COUNT(product)
