@@ -4,21 +4,22 @@
       <div class="total-board__order-information">
          <div class="order-information__order-amount item">
             <span>Сумма заказа</span>
-            <span>50 576 ₽</span>
+            <span>{{ TOTAL_COST }} ₽</span>
          </div>
          <div class="order-information__order-count item">
             <span>Количество</span>
-            <span>4 шт</span>
+            <span>{{ TOTAL_COUNT }} шт</span>
          </div>
          <div class="order-information__order-installation item">
             <span>Установка</span>
-            <span>Нет</span>
+            <span v-if="!INSTALATION">Нет</span>
+            <span v-else>Да</span>
          </div>
       </div>
       <div class="total-board__line"></div>
       <div class="total-board__total-amount">
          Стоимость товаров
-         <span>50 576 ₽</span>
+         <span>{{ TOTAL_COST }} ₽</span>
       </div>
       <div class="total-board__btns">
          <button class="btns__set-order btn">Оформить заказ</button>
@@ -28,12 +29,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default {
-   methods: {},
-   computed: {
-      ...mapGetters(['ORDER']),
+   methods: {
+      ...mapActions(['GET_TOTAL_COUNT', 'GET_TOTAL_COST'])
    },
+   computed: {
+      ...mapGetters(['ORDER', 'INSTALATION', 'TOTAL_COUNT', 'TOTAL_COST']),
+   },
+   beforeMount(){
+      this.GET_TOTAL_COUNT()
+      this.GET_TOTAL_COST()
+   }
 }
 </script>
 

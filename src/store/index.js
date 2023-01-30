@@ -28,7 +28,9 @@ export default createStore({
             cost: 12644
          }
       ],
-      // productsCount: 0
+      instalation: false,
+      totalCount: 0,
+      totalCost: 0
    },
    mutations: {
       CLEAR_SHOPPING_CART(state) {
@@ -44,6 +46,22 @@ export default createStore({
          if (state.order.find((item) => item === product).count > 1) {
             state.order.find((item) => item === product).count--
          }
+      },
+      CANGE_INSTALATION_STATUS(state){
+         state.instalation = !state.instalation
+      },
+      GET_TOTAL_COUNT(state){
+         state.totalCount = 0
+         state.order.forEach(item => {
+            state.totalCount += item.count
+         })
+      },
+      GET_TOTAL_COST(state){
+         let cost = 0
+         state.order.forEach(item => {
+            cost += (item.cost * item.count)
+         })
+         state.totalCost = new Intl.NumberFormat('ru-RU').format(cost)
       }
    },
    actions: {
@@ -58,11 +76,29 @@ export default createStore({
       },
       DECREMENT_COUNT({ commit }, product) {
          commit('DECREMENT_COUNT', product)
+      },
+      CANGE_INSTALATION_STATUS({commit}){
+         commit('CANGE_INSTALATION_STATUS')
+      },
+      GET_TOTAL_COUNT({commit}){
+         commit('GET_TOTAL_COUNT')
+      },
+      GET_TOTAL_COST({commit}){
+         commit('GET_TOTAL_COST')
       }
    },
    getters: {
       ORDER(state) {
          return state.order
+      }, 
+      INSTALATION(state){
+         return state.instalation
+      },
+      TOTAL_COUNT(state){
+         return state.totalCount
+      },
+      TOTAL_COST(state){
+         return state.totalCost
       }
    },
    modules: {

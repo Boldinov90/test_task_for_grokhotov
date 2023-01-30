@@ -1,10 +1,7 @@
 <template>
    <div class="orders-item">
       <div class="orders-item__img">
-         <img
-            alt="image"
-            :src="require('../../public/img_orders/' + itemOrder.image)"
-         />
+         <img alt="image" :src="require('../../public/img_orders/' + itemOrder.image)" />
       </div>
       <div class="orders-item__info info">
          <div class="info__title">{{ itemOrder.title }}</div>
@@ -39,20 +36,32 @@ export default {
       return {}
    },
    methods: {
-      ...mapActions(['REMOVE_PRODUCT', 'INCREMENT_COUNT', 'DECREMENT_COUNT']),
+      ...mapActions([
+         'REMOVE_PRODUCT',
+         'INCREMENT_COUNT',
+         'DECREMENT_COUNT',
+         'GET_TOTAL_COUNT',
+         'GET_TOTAL_COST'
+      ]),
       displayCost(cost) {
          const numb = cost
          const numbFmt = new Intl.NumberFormat('ru-RU').format(numb)
          return numbFmt
       },
-      removeProduct(product){
+      removeProduct(product) {
          this.REMOVE_PRODUCT(product)
+         this.GET_TOTAL_COUNT()
+         this.GET_TOTAL_COST()
       },
-      incrementCount(product){
+      incrementCount(product) {
          this.INCREMENT_COUNT(product)
+         this.GET_TOTAL_COUNT()
+         this.GET_TOTAL_COST()
       },
-      decrementCount(product){
+      decrementCount(product) {
          this.DECREMENT_COUNT(product)
+         this.GET_TOTAL_COUNT()
+         this.GET_TOTAL_COST()
       },
    },
    props: {
@@ -68,13 +77,16 @@ export default {
    height: 121px;
    margin-bottom: 25px;
    display: flex;
+
    .orders-item__img {
       margin-left: 15px;
    }
+
    .orders-item__info {
       height: 100%;
       width: 263px;
       margin-left: 31px;
+
       .info__title {
          margin-top: 8px;
          font-family: 'Lato', sans-serif;
@@ -84,6 +96,7 @@ export default {
          line-height: 145%;
          color: #1f2432;
       }
+
       .info__description {
          margin-top: 6px;
          font-family: 'Lato', sans-serif;
@@ -93,6 +106,7 @@ export default {
          line-height: 18px;
          color: #2c3242;
       }
+
       .info__article {
          margin-top: 7px;
          font-family: 'Lato', sans-serif;
@@ -103,6 +117,7 @@ export default {
          color: #797b86;
       }
    }
+
    .orders-item__count-group {
       margin-top: 33px;
       margin-left: 79px;
@@ -112,6 +127,7 @@ export default {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
+
       .btn {
          display: flex;
          justify-content: center;
@@ -121,10 +137,12 @@ export default {
          height: 32px;
          color: #1f2432;
       }
+
       .count-group__btn-minus {
          border-radius: 4px 0 0 4px;
          cursor: pointer;
       }
+
       .count-group__number {
          font-family: 'Lato', sans-serif;
          font-style: normal;
@@ -132,10 +150,12 @@ export default {
          font-size: 14px;
          line-height: 21px;
       }
+
       .count-group__btn-plus {
          border-radius: 0 4px 4px 0;
          cursor: pointer;
       }
+
       .count-group__original-cost {
          margin-top: 8px;
          font-family: 'Roboto', sans-serif;
@@ -146,6 +166,7 @@ export default {
          color: #1f2432;
       }
    }
+
    .orders-item__general-cost {
       margin-top: 38px;
       margin-left: 84px;
@@ -156,6 +177,7 @@ export default {
       line-height: 26px;
       color: #1f2432;
    }
+
    .orders-item__btn-remove:last-of-type {
       margin-left: auto;
       cursor: pointer;

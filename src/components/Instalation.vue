@@ -1,18 +1,34 @@
 <template>
     <div class="instalation">
-        <input type="checkbox" class="instalation__checkbox">
+        <input 
+            type="checkbox" 
+            class="instalation__checkbox" 
+            :v-model="INSTALATION" 
+            :checked="INSTALATION"
+            @click="changeInstalationStatus"
+        >
         <img src="../assets/img_app/img-instalation.svg" alt="" class="instalation__image">
         <div class="instalation__text">
             <div class="text__title">Установка</div>
-            <div class="text__subtitle">Отметьте, если Вам необходима консультация профессионала по монтажу выбранных
-                товаров.</div>
+            <div class="text__subtitle">
+                Отметьте, если Вам необходима консультация профессионала по монтажу выбранных товаров.
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 export default {
-
+    methods:{
+        ...mapActions(['CANGE_INSTALATION_STATUS']),
+        changeInstalationStatus(){
+            this.CANGE_INSTALATION_STATUS()
+        }
+    },
+    computed: {
+        ...mapGetters(['INSTALATION']),
+    },
 }
 </script>
 
