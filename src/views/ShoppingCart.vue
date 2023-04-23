@@ -27,7 +27,9 @@ export default {
    }
    .shopping-cart__order-list{
       display: flex;
-      .order-list__order-list{}
+      .order-list__order-list{
+         // background-color: aqua;
+      }
       .order-list__total-board{
          margin-left: 55px;
       }

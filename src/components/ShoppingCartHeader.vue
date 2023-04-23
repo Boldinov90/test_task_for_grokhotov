@@ -36,8 +36,6 @@ export default {
    align-items: flex-end;
    .shopping-cart-header__title {
       font-family: 'LatoWeb', sans-serif;
-      // font-style: normal;
-      // font-weight: 700;
       font-size: 44px;
       line-height: 120.52%;
       color: #1f2432;

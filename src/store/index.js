@@ -93,6 +93,7 @@ export default createStore({
       }, 
       INSTALATION(state){
          return state.instalation
+         
       },
       TOTAL_COUNT(state){
          return state.totalCount
